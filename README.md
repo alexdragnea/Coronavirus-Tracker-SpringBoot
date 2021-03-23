@@ -18,10 +18,8 @@ This project keeps track of the Coronavirus global stats like confirmed cases, d
 
 
 # Pictures
-
 <img src="https://imgur.com/tGNvtTf.png">
-<img src="https://imgur.com/2DRWnLG.png">
-<img src="https://imgur.com/BMqSF4r.png">
-<img src="https://imgur.com/tLUPLLk.png">
-<img src="https://imgur.com/wZ7bQ9s.png">
-<img src="https://imgur.com/0MZKZrE.png">
+<img src="https://imgur.com/uWK4Exo.png">
+<img src="https://imgur.com/qgMVvyG.png">
+<img src="https://imgur.com/3hUnJ5f.png">
+
