@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Coronavirus Tracker</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+<style>
+
+
+.container-fluid {
+text-align: center;
+}
+
+.jumbotron {
+  text-align: center;
+  border: 1px solid;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  background-color: rgb(255, 255, 255);
+}
+
+body {
+background-color: rgb(240, 249, 255);
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 10px 20px 1px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 2px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+</head>
+
+<body>
+<div class="container-fluid">
+<h1>Coronavirus Tracker</h1>
+
+<div class="jumbotron">
+    <h1  th:text="'Total cases: ' + ${totalReportedCases}"> </h1>
+    <hr class="my-1">
+    <p>
+        <span>New cases reported since previous day:</span>
+        <span th:text="${totalNewCases}"></span>
+    </p>
+</div>
+
+<input id="myInput" type="text" placeholder="Search..">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+            <th>State</th>
+            <th>Country</th>
+            <th>Total cases reported</th>
+            <th>Changes since last day</th>
+        </tr>
+        </thead>
+        <tbody id="myTable">
+        <tr th:each="locationStat : ${locationStats}">
+     	    <td th:text="${locationStat.state.isEmpty} ? '---' : ${locationStat.state}"></td>
+            <td th:text="${locationStat.country}"></td>
+            <td th:text="${locationStat.totalCases}">0</td>
+            <td th:text="${locationStat.changesFromPrevDay}">0</td>
+        </tr>
+      
+    </table>
+    
+</div>
+
+
+</body>
+
+</html>
