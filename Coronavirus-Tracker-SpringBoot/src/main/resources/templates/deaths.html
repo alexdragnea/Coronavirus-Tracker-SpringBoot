@@ -86,11 +86,11 @@ tr:nth-child(even) {
 	
 
 		<div class="jumbotron">
-			<h1 th:text="'Total cases: ' + ${totalReportedCases}"></h1>
+			<h1 th:text="'Total deaths: ' + ${totalReportedDeaths}"></h1>
 			<hr class="my-1">
 			<p>
-				<span>New cases reported since previous day:</span> <span
-					th:text="${totalNewCases}"></span>
+				<span>New deaths reported since previous day:</span> <span
+					th:text="${totalNewDeaths}"></span>
 			</p>
 		</div>
 		<div th:include="./resources/menu.html"></div>
@@ -100,17 +100,17 @@ tr:nth-child(even) {
 				<tr>
 					<th>State</th>
 					<th>Country</th>
-					<th>Total cases reported</th>
+					<th>Total deaths reported</th>
 					<th>Changes since last day</th>
 				</tr>
 			
 			<tbody id="myTable">
-				<tr th:each="locationStat : ${locationStats}">
+				<tr th:each="deathStat : ${deathStats}">
 					<td
-						th:text="${locationStat.state.isEmpty} ? '---' : ${locationStat.state}"></td>
-					<td th:text="${locationStat.country}"></td>
-					<td th:text="${locationStat.totalCases}">0</td>
-					<td th:text="${locationStat.changesFromPrevDay}">0</td>
+						th:text="${deathStat.state.isEmpty} ? '---' : ${deathStat.state}"></td>
+					<td th:text="${deathStat.country}"></td>
+					<td th:text="${deathStat.totalDeaths}">0</td>
+					<td th:text="${deathStat.changesFromPrevDay}">0</td>
 				</tr>
 		</table>
 <script

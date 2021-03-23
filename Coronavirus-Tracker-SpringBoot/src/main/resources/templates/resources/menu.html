@@ -1,0 +1,29 @@
+
+<style>
+.menu-container {
+    text-align: center;
+    margin: 8px 5px;
+}
+.menu-container a {
+    margin: 5px 5px 5px 10px;
+    color: rgb(128, 128, 255);
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: underline;
+}
+</style>
+
+<div class="menu-container"
+   xmlns:th="http://www.thymeleaf.org"
+   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
+   <a th:href="@{/}">Cases</a>
+   |
+   <a th:href="@{/deaths}">
+   Deaths
+   </a>
+   |
+   <a th:href="@{/recoveries}">
+   Recoveries
+   </a>
+   
+</div>
